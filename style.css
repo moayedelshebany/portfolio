@@ -1,4 +1,5 @@
 * {
+    font-family:"Noto Sans Arabic", sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -805,7 +806,7 @@ footer {
 
 #scrollTopBtn {
     position: fixed;
-    bottom: 150px;
+    bottom: 200px;
     left: 30px;
     width: 52px;
     height: 52px;
@@ -842,6 +843,32 @@ footer {
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
 }
 
+#musicBtn {
+    position: fixed;
+    left: 30px;
+    bottom: 140px; /* فوق زر العودة للأعلى */
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    font-size: 1.3rem;
+    color: #fff;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+    z-index: 9999;
+    
+    transition: transform 0.3s ease, opacity 0.2s ease;
+}
+
+#musicBtn:hover {
+    transform: scale(1.1);
+}
+
+#musicBtn.paused {
+    opacity: 1;
+}
+
 @media (max-width: 1200px) {
     h1 {
         font-size: 3.5rem;
@@ -870,6 +897,13 @@ footer {
         text-align: center;
         gap: 4rem;
     }
+  @media (max-width: 992px) {
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
 
     h1 {
         font-size: 3rem;
@@ -888,9 +922,7 @@ footer {
         justify-content: center;
     }
 
-    nav {
-        display: none;
-    }
+    
 
     .layer1,
     .layer2,
@@ -911,7 +943,13 @@ footer {
         height: 46px;
         font-size: 1.1rem;
     }
-
+    #musicBtn{
+       left: 15px;
+        bottom: 80px;
+        width: 46px;
+        height: 46px;
+        font-size: 1.1rem; 
+    }
     /* Guest story */
     #guest-story h2 {
         font-size: 2.3rem;

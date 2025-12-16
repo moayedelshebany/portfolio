@@ -90,3 +90,35 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+document.addEventListener("DOMContentLoaded", () => {
+    const music = document.getElementById("bgMusic");
+    const btn = document.getElementById("musicBtn");
+
+    // مستوى صوت هادئ
+    music.volume = 0.4;
+
+    // استرجاع الحالة
+    const savedState = localStorage.getItem("musicPlaying");
+    if (savedState === "true") {
+        music.play();
+        btn.classList.remove("paused");
+        btn.textContent = "🔊";
+    } else {
+        btn.classList.add("paused");
+        btn.textContent = "🎵";
+    }
+
+    btn.addEventListener("click", () => {
+        if (music.paused) {
+            music.play();
+            btn.textContent = "🔊";
+            btn.classList.remove("paused");
+            localStorage.setItem("musicPlaying", "true");
+        } else {
+            music.pause();
+            btn.textContent = "🎵";
+            btn.classList.add("paused");
+            localStorage.setItem("musicPlaying", "false");
+        }
+    });
+});
